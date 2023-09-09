@@ -1,0 +1,121 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        I have no idea how to start solving this mission.
+    </div>
+    <div class="answer">
+        <p>
+            Catch an idea 💡! Declare variables for starting index of substring and number of occurrences, convert both given strings into same case and find substring in the main string starting from current starting index, while it's present there, update the starting index after finding.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, what should I start from?
+    </div>
+    <div class="answer">
+        <p>
+            Declare variables for starting index of substring and number of occurrences with the initial values of 0.
+        </p>
+        <pre class="brush: javascript">
+let count = 0, index = 0;
+        </pre>
+        <p>
+            Convert both given strings into same case to catch all possible variants of substring.
+        </p>
+        <pre class="brush: javascript">
+mainStr = mainStr.toLowerCase();
+subStr = subStr.toLowerCase();
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        What to do next?
+    </div>
+    <div class="answer">
+        <p>
+            Be attentive, it's an important step. You need to continuously look for substring in the main string, starting from current <b class="code">index</b>. Use <a target="_blank" href="https://www.w3schools.com/jsref/jsref_indexof.asp">string.indexOf()</a> method and update the variable value with the result of expression, to "move" over the main string and <b class="code">while loop</b>.
+        </p>
+        <pre class="brush: javascript">
+while ((index = mainStr.indexOf(subStr, index)) !== -1) {
+    ...
+}
+        </pre>
+        <p>
+            Repeat, until substring is present at the main string starting from current <b class="code">index</b>. 
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I still need a hint.
+    </div>
+    <div class="answer">
+        <p>
+            When you've found a new occurrence of substring and <b class="code">index</b> have got a new value, you need to increment your <b class="code">count</b> variable's value and you also need to increment <b class="code">index</b> by 1 to start a new search from the next character after previous finding.
+        </p>
+        <pre class="brush: javascript">
+count++;
+index++;
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        So, how my final solution should look like?
+    </div>
+    <div class="answer">
+        <p>
+            You just need to join all previous hints, return the result and wrap your code into function expression. Using type hints for input and output data are highly recommended.
+        </p>
+        <p>Here is the whole solution:</p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function countOccurrences(mainStr: string, subStr: string): number {
+
+    let count = 0, index = 0;
+    mainStr = mainStr.toLowerCase();
+    subStr = subStr.toLowerCase();
+    while ((index = mainStr.indexOf(subStr, index)) !== -1) {
+        count++;
+        index++;
+    }
+    return count;
+}
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Show me more solutions!<br />
+        'Cause I wanna be a real 🥇 Javascript Hero!
+    </div>
+    <div class="answer">
+        <p>Sure, grab it!</p>
+        <p>
+            Using regular expressions find all occurrences without consuming characters (overlapping allowed) and ignoring case. 
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function countOccurrences(mainStr: string, subStr: string): number {
+
+    let matches = mainStr.match(new RegExp(`(?=${subStr})`, "gi"));
+    
+    return matches ? matches.length : 0;
+            }
+        </pre>
+        </div>
+        <p>Click <b>Best Solutions</b> at mission menu and see a lot of other interesting solutions!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Thanks! I know and understand more now! Everything works fine!
+    </div>
+    <div class="answer">
+        Glad to hear it 👍!
+    </div>
+</div>
+</body>
