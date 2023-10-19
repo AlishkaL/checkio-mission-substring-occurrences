@@ -1,0 +1,122 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Je n'ai aucune idée de la manière de commencer à résoudre cette mission.
+    </div>
+    <div class="answer">
+        <p>
+            Trouvez une idée 💡! Déclarez des variables pour l'indice de départ de la sous-chaîne et le nombre d'occurrences, convertissez les deux chaînes données dans la même casse et trouvez la sous-chaîne dans la chaîne principale à partir de l'indice de départ actuel, tant qu'elle est présente, mettez à jour l'indice de départ après l'avoir trouvée.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, par quoi dois-je commencer?
+    </div>
+    <div class="answer">
+        <p>
+            Déclarez des variables pour l'indice de départ de la sous-chaîne et le nombre d'occurrences avec des valeurs initiales de 0.
+        </p>
+        <pre class="brush: python">
+ind = res = 0
+        </pre>
+        <p>
+            Convertissez les deux chaînes de caractères données dans la même casse afin de prendre en compte toutes les variantes possibles de la sous-chaîne.
+        </p>
+        <pre class="brush: python">
+main_str = main_str.lower()
+sub_str = sub_str.lower()
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Que faire ensuite?
+    </div>
+    <div class="answer">
+        <p>
+            Soyez attentif, c'est une étape importante. Vous devez continuellement rechercher des sous-chaînes dans la chaîne principale, en commençant par la chaîne actuelle <b class="code">ind</b>. Utilisez la méthode <a target="_blank" href="https://www.w3schools.com/python/ref_string_find.asp">str.find()</a> et mettez à jour la valeur de la variable avec le résultat de l'expression, pour vous "déplacer" sur la chaîne principale.
+            Utilisez l'opérateur <a target="_blank" href="https://realpython.com/python-walrus-operator/">walrus</a> et <b class="code">while loop</b>.
+        </p>
+        <pre class="brush: python">
+while (ind:= main_str.find(sub_str, ind))!= -1:
+    ...
+        </pre>
+        <p>
+            Répétez l'opération jusqu'à ce que la sous-chaîne soit présente dans la chaîne principale, à partir de l'adresse <b class="code">ind</b>. 
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        J'ai encore besoin d'un indice.
+    </div>
+    <div class="answer">
+        <p>
+            Lorsque vous avez trouvé une nouvelle occurrence de substring et que <b class="code">ind</b> a obtenu une nouvelle valeur, vous devez incrémenter la valeur de votre variable <b class="code">res</b> et vous devez également incrémenter <b class="code">ind</b> de 1 pour commencer une nouvelle recherche à partir du caractère suivant après la recherche précédente.
+        </p>
+        <pre class="brush: python">
+res += 1
+ind += 1
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Alors, à quoi devrait ressembler ma solution finale?
+    </div>
+    <div class="answer">
+        <p>
+            Il vous suffit de joindre tous les indices précédents, de renvoyer le résultat et d'envelopper votre code dans une expression de fonction. Il est fortement recommandé d'utiliser des indices de type pour les données d'entrée et de sortie.
+        </p>
+        <p>Voici la solution complète:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def count_occurrences(main_str: str, sub_str: str) -> int:
+
+    ind = res = 0
+    main_str = main_str.lower()
+    sub_str = sub_str.lower()
+    while (ind:= main_str.find(sub_str, ind))!= -1:
+        res += 1
+        ind += 1
+        
+    return res
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Montrez-moi d'autres solutions!<br />
+        parce que je veux être une vraie 🥇 Python Ninnjaa!
+    </div>
+    <div class="answer">
+        <p>Bien sûr, prenez-le!</p>
+        <p>
+            En utilisant les expressions régulières, trouvez toutes les occurrences sans consommer de caractères (chevauchement autorisé) et en ignorant la casse. 
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+import re
+
+
+def count_occurrences(main_str: str, sub_str: str) -> int:
+    
+    matches = re.findall(fr'(?={sub_str})', main_str, flags=re.IGNORECASE)
+    
+    return len(matches)
+        </pre>
+        </div>
+        <p>Cliquez sur <b>Best Solutions</b> dans le menu mission et découvrez de nombreuses autres solutions intéressantes!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Merci beaucoup! Je sais et je comprends mieux maintenant! Tout fonctionne bien!
+    </div>
+    <div class="answer">
+        Heureux de l'apprendre 👍!
+    </div>
+</div>
+</body>
