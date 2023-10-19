@@ -1,0 +1,46 @@
+<!-- Describe task in general -->
+
+<p>
+    该函数应将一个主字符串和一个子字符串作为输入，并返回子字符串在主字符串中出现的次数。该函数不区分大小写，并可能出现重叠。  
+</p>
+
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}count-substr.png" alt="example" style="max-height: 300px"/>
+</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>输入</strong>两个字符串 <span>(str{% if is_js %}ing{% endif %})</span>.
+</p>
+
+<p>
+   <strong>输出：</strong>整数 <span>({% if is_js %}number{% else %}int{% endif %})</span>. 
+</p>
+
+<p>
+    <strong>示例</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<p class="for_info_only">
+    <strong>如何使用：</strong>
+    <ul>
+        <li><i>在文字处理软件中，高亮显示或替换特定单词或短语的所有出现次数；</i></li>
+        <li><i>在网站搜索中，计算特定关键词出现的次数；</i></li>
+        <li><i>在分析应用程序中，分析文本中某些单词或短语的出现频率。</i></li>
+    </ul>
+</p>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>前提条件</strong>
+    <ul>
+        <li><i>两个输入都应是字符串：mainStr ∈ string 和 subStr ∈ string；</i></li>
+        <li><i>主字符串可以有任何长度，包括 0：0 &lt;= length(mainStr) &lt;= N；</i></li>
+        <li><i>子串不应是空字符串：length(subStr) &gt; 0</i>。</li>
+    </ul>
+</p>
