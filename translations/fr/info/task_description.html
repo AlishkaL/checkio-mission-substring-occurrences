@@ -1,0 +1,46 @@
+<!-- Describe task in general -->
+
+<p>
+    Cette fonction doit prendre en entrée une chaîne principale et une sous-chaîne et renvoyer le nombre d'occurrences de la sous-chaîne dans la chaîne principale. Elle ne doit pas être sensible à la casse et peut se chevaucher.  
+</p>
+
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}count-substr.png" alt="example" style="max-height: 300px"/>
+</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Entrée:</strong> Deux chaînes de caractères <span>(str{% if is_js %}ing{% endif %})</span>.
+</p>
+
+<p>
+   <strong>Sortie:</strong> Entier <span>({% if is_js %}number{% else %}int{% endif %})</span>. 
+</p>
+
+<p>
+    <strong>Exemples:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<p class="for_info_only">
+    <strong>Comment il est utilisé:</strong>
+    <ul>
+        <li><i>dans un logiciel de traitement de texte pour surligner ou remplacer toutes les occurrences d'un mot ou d'une phrase particulière;</i></li>
+        <li><i>dans un logiciel de traitement de texte pour surligner ou remplacer toutes les occurrences d'un mot ou d'une phrase;</i></li>
+        <li><i>dans une application analytique pour analyser la fréquence de certains mots ou phrases dans un corps de texte.</i></li>
+    </ul>
+</p>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>Conditions préalables:</strong>
+    <ul>
+        <li><i>les deux entrées doivent être des chaînes: mainStr ∈ string et subStr ∈ string;</i></li>
+        <li><i>la chaîne principale peut avoir n'importe quelle longueur, y compris zéro: 0 &lt;= length(mainStr) &lt;= N;</i></li>
+        <li><i>la sous-chaîne ne doit pas être une chaîne vide: length(subStr) &gt; 0</i>.</li>
+    </ul>
+</p>
