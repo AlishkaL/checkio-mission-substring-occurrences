@@ -1,0 +1,121 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        我不知道如何开始解决这个任务。
+    </div>
+    <div class="answer">
+        <p>
+            给你个建议💡！为子串的起始索引和出现次数声明变量，将给定的两个字符串转换为同种情况，并从当前起始索引开始在主字符串中查找子串，如果子串存在，则在查找后更新起始索引。
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        好吧，我应该从哪里开始呢？
+    </div>
+    <div class="answer">
+        <p>
+            为子串的起始索引和出现次数声明变量，初始值为 0。
+        </p>
+        <pre class="brush: javascript">
+let count = 0, index = 0;
+        </pre>
+        <p>
+            将给定的两个字符串转换为相同大小写，以捕捉子串的所有可能变体。
+        </p>
+        <pre class="brush: javascript">
+mainStr = mainStr.toLowerCase();
+subStr = subStr.toLowerCase();
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        下一步该怎么做？
+    </div>
+    <div class="answer">
+        <p>
+            注意，这一步很重要。你需要从当前的<b class="code">index</b> 开始，在主字符串中不断查找子串。使用<a target="_blank" href="https://www.w3schools.com/jsref/jsref_indexof.asp">string.indexOf()</a> 方法，用表达式的结果更新变量值，在主字符串和<b class="code">while loop</b> 上 "移动"。
+        </p>
+        <pre class="brush: javascript">
+while ((index = mainStr.indexOf(subStr, index))!== -1) {
+    ...
+}
+        </pre>
+        <p>
+            重复上述操作，直到从当前<b class="code">index</b> 开始的主字符串中出现子字符串。 
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        我还需要提示。
+    </div>
+    <div class="answer">
+        <p>
+            当找到一个新的子串且<b class="code">index</b> 有了新值时，需要将<b class="code">count</b> 变量的值递增，同时将<b class="code">index</b> 的值递增 1，以便从上一次搜索后的下一个字符开始新的搜索。
+        </p>
+        <pre class="brush: javascript">
+count++;
+index++;
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        那么，我的最终解决方案应该是怎样的呢？
+    </div>
+    <div class="answer">
+        <p>
+            您只需将之前的所有提示连接起来，返回结果并将代码封装成函数表达式。强烈建议对输入和输出数据使用类型提示。
+        </p>
+        <p>以下是整个解决方案：</p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function countOccurrences(mainStr: string, subStr: string): number {
+
+    let count = 0, index = 0;
+    mainStr = mainStr.toLowerCase();
+    subStr = subStr.toLowerCase();
+    while ((index = mainStr.indexOf(subStr, index))!== -1) {
+        count++;
+        index++;
+    }
+    return count;
+}
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        告诉我更多解决方案！<br />
+        因为我想成为真正的 🥇 Javascript 英雄！
+    </div>
+    <div class="answer">
+        <p>当然，抓紧时间！</p>
+        <p>
+            使用正则表达式查找所有出现的字符，不消耗字符（允许重叠），忽略大小写。 
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function countOccurrences(mainStr: string, subStr: string): number {
+
+    let matches = mainStr.match(new RegExp(`(?=${subStr})`, "gi"));
+    
+    return matches? matches.length: 0;
+}
+        </pre>
+        </div>
+        <p>点击任务菜单<b>Best Solutions</b> ，查看更多有趣的解决方案！</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        谢谢！我现在知道并理解得更多了！一切正常！
+    </div>
+    <div class="answer">
+        很高兴听到这个消息 👍！
+    </div>
+</div>
+</body>

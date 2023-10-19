@@ -1,0 +1,122 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        我不知道如何开始解决这个任务。
+    </div>
+    <div class="answer">
+        <p>
+            给你个建议💡！为子串的起始索引和出现次数声明变量，将给定的两个字符串转换为同种情况，并从当前起始索引开始在主字符串中查找子串，如果子串存在，则在查找后更新起始索引。
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        好吧，我应该从哪里开始呢？
+    </div>
+    <div class="answer">
+        <p>
+            为子串的起始索引和出现次数声明变量，初始值为 0。
+        </p>
+        <pre class="brush: python">
+ind = res = 0
+        </pre>
+        <p>
+            将给定的两个字符串转换为相同大小写，以捕捉子串的所有可能变体。
+        </p>
+        <pre class="brush: python">
+main_str = main_str.lower()
+sub_str = sub_str.lower()
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        下一步该怎么做？
+    </div>
+    <div class="answer">
+        <p>
+            注意，这一步很重要。你需要从当前的<b class="code">ind</b> 开始，在主字符串中不断查找子串。使用<a target="_blank" href="https://www.w3schools.com/python/ref_string_find.asp">str.find()</a> 方法，用表达式的结果更新变量值，在主字符串上 "移动"。
+            使用<a target="_blank" href="https://realpython.com/python-walrus-operator/">walrus</a> 运算符和<b class="code">while loop</b> 。
+        </p>
+        <pre class="brush: python">
+while (ind:= main_str.find(sub_str, ind))!= -1:
+    ...
+        </pre>
+        <p>
+            重复上述操作，直到从当前<b class="code">ind</b> 开始的主字符串中出现子字符串。 
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        我还需要提示。
+    </div>
+    <div class="answer">
+        <p>
+            当找到一个新的子串且<b class="code">ind</b> 有了新值时，需要将<b class="code">res</b> 变量的值递增，同时将<b class="code">ind</b> 的值递增 1，以便从上一次搜索后的下一个字符开始新的搜索。
+        </p>
+        <pre class="brush: python">
+res += 1
+ind += 1
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        那么，我的最终解决方案应该是怎样的呢？
+    </div>
+    <div class="answer">
+        <p>
+            您只需将之前的所有提示连接起来，返回结果并将代码封装成函数表达式。强烈建议对输入和输出数据使用类型提示。
+        </p>
+        <p>以下是整个解决方案：</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def count_occurrences(main_str: str, sub_str: str) -> int:
+
+    ind = res = 0
+    main_str = main_str.lower()
+    sub_str = sub_str.lower()
+    while (ind:= main_str.find(sub_str, ind))!= -1:
+        res += 1
+        ind += 1
+        
+    return res
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        告诉我更多解决方案！<br />
+        因为我想成为一个真正的 🥇 Python Ninnjaa！
+    </div>
+    <div class="answer">
+        <p>当然，抓紧时间！</p>
+        <p>
+            使用正则表达式查找所有出现的字符，不消耗字符（允许重叠），忽略大小写。 
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+import re
+
+
+def count_occurrences(main_str: str, sub_str: str) -> int:
+    
+    matches = re.findall(fr'(?={sub_str})', main_str, flags=re.IGNORECASE)
+    
+    return len(matches)
+        </pre>
+        </div>
+        <p>点击任务菜单<b>Best Solutions</b> ，查看更多有趣的解决方案！</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        谢谢！我现在知道并理解得更多了！一切正常！
+    </div>
+    <div class="answer">
+        很高兴听到这个消息 👍！
+    </div>
+</div>
+</body>
