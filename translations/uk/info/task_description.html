@@ -1,0 +1,46 @@
+<!-- Describe task in general -->
+
+<p>
+    Ця функція повинна приймати на вхід основний рядок та підрядок і повертати кількість входжень підрядка в основному рядку. Вона не повинна бути чутливою до регістру і може перекриватися.  
+</p>
+
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}count-substr.png" alt="example" style="max-height: 300px"/>
+</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Вхідні дані:</strong> Два рядки <span>(str{% if is_js %}ing{% endif %})</span>.
+</p>
+
+<p>
+   <strong>Вихідні дані:</strong> Ціле число <span>({% if is_js %}number{% else %}int{% endif %})</span>. 
+</p>
+
+<p>
+    <strong>Приклади:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<p class="for_info_only">
+    <strong>Як використовується:</strong>
+    <ul>
+        <li><i>у текстовому редакторі для виділення або заміни всіх входжень певного слова або фрази;</i></li>
+        <li><i>при скануванні веб-сайтів для підрахунку кількості згадувань певного ключового слова;</i></li>
+        <li><i>в аналітичних програмах для аналізу частоти вживання певних слів або фраз у тексті.</i></li>
+    </ul>
+</p>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>Попередні умови:</strong>
+    <ul>
+        <li><i>обидва вхідні дані повинні бути рядками: mainStr ∈ string та subStr ∈ string;</i></li>
+        <li><i>основний рядок може мати довільну довжину, включаючи нуль: 0 &lt;= length(mainStr) &lt;= N;</i></li>
+        <li>підрядок<i>не повинен бути порожнім: length(subStr) &gt; 0</i>.</li>
+    </ul>
+</p>
