@@ -1,0 +1,46 @@
+<!-- Describe task in general -->
+
+<p>
+    Ta funkcja powinna przyjmować główny ciąg znaków i podciąg jako dane wejściowe i zwracać liczbę wystąpień podciągu w głównym ciągu znaków. Nie powinna rozróżniać wielkości liter i może się nakładać.  
+</p>
+
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}count-substr.png" alt="example" style="max-height: 300px"/>
+</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Wejście:</strong> Dwa ciągi znaków <span>(str{% if is_js %}ing{% endif %})</span>.
+</p>
+
+<p>
+   <strong>Wyjście:</strong> Liczba całkowita <span>({% if is_js %}number{% else %}int{% endif %})</span>. 
+</p>
+
+<p>
+    <strong>Przykłady:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<p class="for_info_only">
+    <strong>Jak to jest używane:</strong>
+    <ul>
+        <li><i>w edytorze tekstu do podświetlania lub zastępowania wszystkich wystąpień określonego słowa lub frazy;</i></li>
+        <li><i>w skrobaniu stron internetowych w celu zliczenia liczby wystąpień określonego słowa kluczowego;</i></li>
+        <li><i>w aplikacji analitycznej do analizy częstotliwości występowania określonych słów lub fraz w tekście.</i></li>
+    </ul>
+</p>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>Warunki wstępne:</strong>
+    <ul>
+        <li><i>oba dane wejściowe powinny być ciągami znaków: mainStr ∈ string i subStr ∈ string;</i></li>
+        <li><i>główny ciąg może mieć dowolną długość, w tym zero: 0 &lt;= length(mainStr) &lt;= N;</i></li>
+        <li><i>podłańcuch nie powinien być pustym łańcuchem: length(subStr) &gt; 0</i>.</li>
+    </ul>
+</p>
