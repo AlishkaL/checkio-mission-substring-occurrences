@@ -1,0 +1,122 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Nie mam pojęcia, jak zacząć rozwiązywać tę misję.
+    </div>
+    <div class="answer">
+        <p>
+            Proszę złapać pomysł 💡! Proszę zadeklarować zmienne dla indeksu początkowego podciągu i liczby wystąpień, przekonwertować oba podane ciągi na tę samą wielkość liter i znaleźć podciąg w głównym ciągu, zaczynając od bieżącego indeksu początkowego, gdy jest tam obecny, zaktualizować indeks początkowy po znalezieniu.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, od czego powinienem zacząć?
+    </div>
+    <div class="answer">
+        <p>
+            Proszę zadeklarować zmienne dla indeksu początkowego podciągu i liczby wystąpień z wartościami początkowymi 0.
+        </p>
+        <pre class="brush: python">
+ind = res = 0
+        </pre>
+        <p>
+            Proszę przekonwertować oba podane ciągi na tę samą wielkość liter, aby wychwycić wszystkie możliwe warianty podciągu.
+        </p>
+        <pre class="brush: python">
+main_str = main_str.lower()
+sub_str = sub_str.lower()
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Co robić dalej?
+    </div>
+    <div class="answer">
+        <p>
+            Proszę uważać, to ważny krok. Należy stale szukać podciągów w głównym ciągu, zaczynając od bieżącego <b class="code">ind</b>. Proszę użyć metody <a target="_blank" href="https://www.w3schools.com/python/ref_string_find.asp">str.find()</a> i zaktualizować wartość zmiennej wynikiem wyrażenia, aby "przesunąć się" po głównym ciągu.
+            Proszę użyć operatora <a target="_blank" href="https://realpython.com/python-walrus-operator/">walrus</a> i <b class="code">while loop</b>.
+        </p>
+        <pre class="brush: python">
+while (ind:= main_str.find(sub_str, ind))!= -1:
+    ...
+        </pre>
+        <p>
+            Proszę powtarzać, aż podciąg będzie obecny w głównym ciągu, zaczynając od bieżącego <b class="code">ind</b>. 
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Nadal potrzebuję podpowiedzi.
+    </div>
+    <div class="answer">
+        <p>
+            Po znalezieniu nowego wystąpienia podciągu i <b class="code">ind</b> ma nową wartość, należy zwiększyć wartość zmiennej <b class="code">res</b>, a także zwiększyć <b class="code">ind</b> o 1, aby rozpocząć nowe wyszukiwanie od następnego znaku po poprzednim znalezieniu.
+        </p>
+        <pre class="brush: python">
+res += 1
+ind += 1
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Jak więc powinno wyglądać moje ostateczne rozwiązanie?
+    </div>
+    <div class="answer">
+        <p>
+            Wystarczy połączyć wszystkie poprzednie podpowiedzi, zwrócić wynik i zawinąć kod w wyrażenie funkcyjne. Używanie podpowiedzi typu dla danych wejściowych i wyjściowych jest wysoce zalecane.
+        </p>
+        <p>Poniżej znajduje się całe rozwiązanie:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def count_occurrences(main_str: str, sub_str: str) -> int:
+
+    ind = res = 0
+    main_str = main_str.lower()
+    sub_str = sub_str.lower()
+    while (ind:= main_str.find(sub_str, ind))!= -1:
+        res += 1
+        ind += 1
+        
+    return res
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Proszę pokazać mi więcej rozwiązań!<br />
+        bo chcę być prawdziwą 🥇 Python Ninnjaa!
+    </div>
+    <div class="answer">
+        <p>Jasne, proszę łapać!</p>
+        <p>
+            Za pomocą wyrażeń regularnych proszę znaleźć wszystkie wystąpienia bez zużywania znaków (nakładanie się dozwolone) i ignorując wielkość liter. 
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+import re
+
+
+def count_occurrences(main_str: str, sub_str: str) -> int:
+    
+    matches = re.findall(fr'(?={sub_str})', main_str, flags=re.IGNORECASE)
+    
+    return len(matches)
+        </pre>
+        </div>
+        <p>Proszę kliknąć <b>Best Solutions</b> w menu misji i zobaczyć wiele innych ciekawych rozwiązań!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Dzięki! Teraz wiem i rozumiem więcej! Wszystko działa jak należy!
+    </div>
+    <div class="answer">
+        Miło mi to słyszeć 👍!
+    </div>
+</div>
+</body>
