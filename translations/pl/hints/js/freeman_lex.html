@@ -1,0 +1,121 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Nie mam pojęcia, jak zacząć rozwiązywać tę misję.
+    </div>
+    <div class="answer">
+        <p>
+            Proszę złapać pomysł 💡! Proszę zadeklarować zmienne dla indeksu początkowego podciągu i liczby wystąpień, przekonwertować oba podane ciągi na tę samą wielkość liter i znaleźć podciąg w głównym ciągu, zaczynając od bieżącego indeksu początkowego, gdy jest tam obecny, zaktualizować indeks początkowy po znalezieniu.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, od czego powinienem zacząć?
+    </div>
+    <div class="answer">
+        <p>
+            Proszę zadeklarować zmienne dla indeksu początkowego podciągu i liczby wystąpień z wartościami początkowymi 0.
+        </p>
+        <pre class="brush: javascript">
+let count = 0, index = 0;
+        </pre>
+        <p>
+            Proszę przekonwertować oba podane ciągi na tę samą wielkość liter, aby wychwycić wszystkie możliwe warianty podciągu.
+        </p>
+        <pre class="brush: javascript">
+mainStr = mainStr.toLowerCase();
+subStr = subStr.toLowerCase();
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Co robić dalej?
+    </div>
+    <div class="answer">
+        <p>
+            Proszę uważać, to ważny krok. Należy stale szukać podciągów w głównym ciągu, zaczynając od bieżącego <b class="code">index</b>. Proszę użyć metody <a target="_blank" href="https://www.w3schools.com/jsref/jsref_indexof.asp">string.indexOf()</a> i zaktualizować wartość zmiennej wynikiem wyrażenia, aby "przesunąć się" po głównym ciągu i <b class="code">while loop</b>.
+        </p>
+        <pre class="brush: javascript">
+while ((index = mainStr.indexOf(subStr, index))!== -1) {
+    ...
+}
+        </pre>
+        <p>
+            Proszę powtarzać, aż podciąg będzie obecny w głównym ciągu, zaczynając od bieżącego <b class="code">index</b>. 
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Nadal potrzebuję podpowiedzi.
+    </div>
+    <div class="answer">
+        <p>
+            Po znalezieniu nowego wystąpienia podciągu i <b class="code">index</b> ma nową wartość, należy zwiększyć wartość zmiennej <b class="code">count</b>, a także zwiększyć <b class="code">index</b> o 1, aby rozpocząć nowe wyszukiwanie od następnego znaku po poprzednim znalezieniu.
+        </p>
+        <pre class="brush: javascript">
+count++;
+index++;
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Jak więc powinno wyglądać moje ostateczne rozwiązanie?
+    </div>
+    <div class="answer">
+        <p>
+            Wystarczy połączyć wszystkie poprzednie podpowiedzi, zwrócić wynik i zawinąć kod w wyrażenie funkcyjne. Używanie podpowiedzi typu dla danych wejściowych i wyjściowych jest wysoce zalecane.
+        </p>
+        <p>Poniżej znajduje się całe rozwiązanie:</p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function countOccurrences(mainStr: string, subStr: string): number {
+
+    let count = 0, index = 0;
+    mainStr = mainStr.toLowerCase();
+    subStr = subStr.toLowerCase();
+    while ((index = mainStr.indexOf(subStr, index))!== -1) {
+        count++;
+        index++;
+    }
+    return count;
+}
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Proszę pokazać mi więcej rozwiązań!<br />
+        bo chcę być prawdziwym 🥇 bohaterem Javascript!
+    </div>
+    <div class="answer">
+        <p>Jasne, proszę pobrać!</p>
+        <p>
+            Za pomocą wyrażeń regularnych proszę znaleźć wszystkie wystąpienia bez zużywania znaków (nakładanie się dozwolone) i ignorowania wielkości liter. 
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function countOccurrences(mainStr: string, subStr: string): number {
+
+    let matches = mainStr.match(new RegExp(`(?=${subStr})`, "gi"));
+    
+    return matches? matches.length: 0;
+}
+        </pre>
+        </div>
+        <p>Proszę kliknąć <b>Best Solutions</b> w menu misji i zobaczyć wiele innych ciekawych rozwiązań!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Dzięki! Teraz wiem i rozumiem więcej! Wszystko działa jak należy!
+    </div>
+    <div class="answer">
+        Miło mi to słyszeć 👍!
+    </div>
+</div>
+</body>
