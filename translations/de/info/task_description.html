@@ -1,0 +1,46 @@
+<!-- Describe task in general -->
+
+<p>
+    Diese Funktion sollte eine Hauptzeichenkette und eine Teilzeichenkette als Eingaben annehmen und die Anzahl der Vorkommen der Teilzeichenkette in der Hauptzeichenkette zurückgeben. Sie sollte Groß- und Kleinschreibung nicht berücksichtigen und kann sich überschneiden.  
+</p>
+
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}count-substr.png" alt="example" style="max-height: 300px"/>
+</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Eingabe:</strong> Zwei Zeichenketten <span>(str{% if is_js %}ing{% endif %})</span>.
+</p>
+
+<p>
+   <strong>Ausgabe:</strong> Ganzzahl <span>({% if is_js %}number{% else %}int{% endif %})</span>. 
+</p>
+
+<p>
+    <strong>Beispiele:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<p class="for_info_only">
+    <strong>Wie es verwendet wird:</strong>
+    <ul>
+        <li><i>in einer Textverarbeitungssoftware, um alle Vorkommen eines bestimmten Wortes oder Ausdrucks zu markieren oder zu ersetzen;</i></li>
+        <li><i>beim Scraping von Websites, um zu zählen, wie oft ein bestimmtes Schlüsselwort vorkommt;</i></li>
+        <li><i>in einer Analyseanwendung, um die Häufigkeit bestimmter Wörter oder Ausdrücke in einem Text zu analysieren.</i></li>
+    </ul>
+</p>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>Vorbedingungen:</strong>
+    <ul>
+        <li><i>beide Eingaben sollten Strings sein: mainStr ∈ String und subStr ∈ String;</i></li>
+        <li><i>die Hauptzeichenkette kann eine beliebige Länge haben, einschließlich Null: 0 &lt;= length(mainStr) &lt;= N;</i></li>
+        <li><i>die Teilzeichenkette sollte keine leere Zeichenkette sein: length(subStr) &gt; 0</i>.</li>
+    </ul>
+</p>
