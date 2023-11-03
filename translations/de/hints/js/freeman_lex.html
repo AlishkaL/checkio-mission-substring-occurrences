@@ -1,0 +1,121 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Ich habe keine Ahnung, wie ich mit der Lösung dieser Aufgabe beginnen soll.
+    </div>
+    <div class="answer">
+        <p>
+            Haben Sie eine Idee 💡! Deklarieren Sie Variablen für den Startindex der Teilzeichenkette und die Anzahl der Vorkommen, konvertieren Sie beide gegebenen Zeichenketten in dieselbe Groß-/Kleinschreibung und suchen Sie die Teilzeichenkette in der Hauptzeichenkette ab dem aktuellen Startindex, solange sie dort vorhanden ist, und aktualisieren Sie den Startindex nach dem Finden.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, womit soll ich beginnen?
+    </div>
+    <div class="answer">
+        <p>
+            Deklarieren Sie Variablen für den Anfangsindex der Teilzeichenkette und die Anzahl der Vorkommen mit den Anfangswerten 0.
+        </p>
+        <pre class="brush: javascript">
+let count = 0, index = 0;
+        </pre>
+        <p>
+            Konvertieren Sie beide gegebenen Zeichenketten in die gleiche Groß-/Kleinschreibung, um alle möglichen Varianten der Teilzeichenkette zu erfassen.
+        </p>
+        <pre class="brush: javascript">
+mainStr = mainStr.toLowerCase();
+subStr = subStr.toLowerCase();
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Was ist als nächstes zu tun?
+    </div>
+    <div class="answer">
+        <p>
+            Seien Sie aufmerksam, dies ist ein wichtiger Schritt. Sie müssen kontinuierlich nach Teilstrings in der Hauptzeichenkette suchen, beginnend mit der aktuellen <b class="code">index</b>. Verwenden Sie die Methode <a target="_blank" href="https://www.w3schools.com/jsref/jsref_indexof.asp">string.indexOf()</a> und aktualisieren Sie den Variablenwert mit dem Ergebnis des Ausdrucks, um sich über die Hauptzeichenkette und <b class="code">while loop</b> zu "bewegen".
+        </p>
+        <pre class="brush: javascript">
+while ((index = mainStr.indexOf(subStr, index))!== -1) {
+    ...
+}
+        </pre>
+        <p>
+            Wiederholen Sie diesen Schritt, bis die Teilzeichenkette in der Hauptzeichenkette ab dem aktuellen <b class="code">index</b> vorhanden ist. 
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich brauche noch einen Hinweis.
+    </div>
+    <div class="answer">
+        <p>
+            Wenn Sie ein neues Vorkommen einer Teilzeichenkette gefunden haben und <b class="code">index</b> einen neuen Wert erhalten hat, müssen Sie den Wert Ihrer Variable <b class="code">count</b> erhöhen und auch <b class="code">index</b> um 1 erhöhen, um eine neue Suche ab dem nächsten Zeichen nach dem vorherigen Fund zu starten.
+        </p>
+        <pre class="brush: javascript">
+count++;
+index++;
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Wie sollte also meine endgültige Lösung aussehen?
+    </div>
+    <div class="answer">
+        <p>
+            Sie müssen nur alle vorherigen Hinweise kombinieren, das Ergebnis zurückgeben und Ihren Code in einen Funktionsausdruck verpacken. Die Verwendung von Typ-Hinweisen für Eingabe- und Ausgabedaten wird dringend empfohlen.
+        </p>
+        <p>Hier ist die gesamte Lösung:</p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function countOccurrences(mainStr: string, subStr: string): number {
+
+    let count = 0, index = 0;
+    mainStr = mainStr.toLowerCase();
+    subStr = subStr.toLowerCase();
+    while ((index = mainStr.indexOf(subStr, index))!== -1) {
+        count++;
+        index++;
+    }
+    return count;
+}
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Zeigen Sie mir mehr Lösungen!<br />
+        denn ich möchte ein echter 🥇 Javascript-Held sein!
+    </div>
+    <div class="answer">
+        <p>Klar, schnappen Sie es sich!</p>
+        <p>
+            Verwenden Sie reguläre Ausdrücke, um alle Vorkommen zu finden, ohne Zeichen zu verbrauchen (Überschneidungen erlaubt) und ohne die Groß- und Kleinschreibung zu beachten. 
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function countOccurrences(mainStr: string, subStr: string): number {
+
+    let matches = mainStr.match(new RegExp(`(?=${subStr})`, "gi"));
+    
+    return matches? matches.length: 0;
+}
+        </pre>
+        </div>
+        <p>Klicken Sie im Missionsmenü auf <b>Best Solutions</b> und sehen Sie sich viele andere interessante Lösungen an!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Vielen Dank! Ich weiß und verstehe jetzt mehr! Alles funktioniert bestens!
+    </div>
+    <div class="answer">
+        Freut mich zu hören 👍!
+    </div>
+</div>
+</body>

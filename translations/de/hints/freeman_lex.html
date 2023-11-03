@@ -1,0 +1,122 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Ich habe keine Ahnung, wie ich mit der Lösung dieser Aufgabe beginnen soll.
+    </div>
+    <div class="answer">
+        <p>
+            Haben Sie eine Idee 💡! Deklarieren Sie Variablen für den Startindex der Teilzeichenkette und die Anzahl der Vorkommen, konvertieren Sie beide gegebenen Zeichenketten in dieselbe Groß-/Kleinschreibung und suchen Sie die Teilzeichenkette in der Hauptzeichenkette ab dem aktuellen Startindex, solange sie dort vorhanden ist, und aktualisieren Sie den Startindex nach dem Finden.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, womit soll ich beginnen?
+    </div>
+    <div class="answer">
+        <p>
+            Deklarieren Sie Variablen für den Anfangsindex der Teilzeichenkette und die Anzahl der Vorkommen mit den Anfangswerten 0.
+        </p>
+        <pre class="brush: python">
+ind = res = 0
+        </pre>
+        <p>
+            Konvertieren Sie beide gegebenen Zeichenketten in die gleiche Groß-/Kleinschreibung, um alle möglichen Varianten der Teilzeichenkette zu erfassen.
+        </p>
+        <pre class="brush: python">
+main_str = main_str.lower()
+sub_str = sub_str.lower()
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Was ist als nächstes zu tun?
+    </div>
+    <div class="answer">
+        <p>
+            Seien Sie aufmerksam, dies ist ein wichtiger Schritt. Sie müssen kontinuierlich nach Teilstrings in der Hauptzeichenkette suchen, beginnend mit der aktuellen <b class="code">ind</b>. Verwenden Sie die Methode <a target="_blank" href="https://www.w3schools.com/python/ref_string_find.asp">str.find()</a> und aktualisieren Sie den Variablenwert mit dem Ergebnis des Ausdrucks, um sich über die Hauptzeichenkette zu "bewegen".
+            Verwenden Sie den Operator <a target="_blank" href="https://realpython.com/python-walrus-operator/">walrus</a> und <b class="code">while loop</b>.
+        </p>
+        <pre class="brush: python">
+while (ind:= main_str.find(sub_str, ind))!= -1:
+    ...
+        </pre>
+        <p>
+            Wiederholen Sie dies, bis die Teilzeichenkette in der Hauptzeichenkette ab dem aktuellen <b class="code">ind</b> vorhanden ist. 
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich brauche noch einen Hinweis.
+    </div>
+    <div class="answer">
+        <p>
+            Wenn Sie ein neues Vorkommen einer Teilzeichenkette gefunden haben und <b class="code">ind</b> einen neuen Wert erhalten hat, müssen Sie den Wert Ihrer Variable <b class="code">res</b> erhöhen und auch <b class="code">ind</b> um 1 erhöhen, um eine neue Suche ab dem nächsten Zeichen nach dem vorherigen Fund zu starten.
+        </p>
+        <pre class="brush: python">
+res += 1
+ind += 1
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Wie sollte also meine endgültige Lösung aussehen?
+    </div>
+    <div class="answer">
+        <p>
+            Sie müssen nur alle vorherigen Hinweise kombinieren, das Ergebnis zurückgeben und Ihren Code in einen Funktionsausdruck verpacken. Die Verwendung von Typ-Hinweisen für Eingabe- und Ausgabedaten wird dringend empfohlen.
+        </p>
+        <p>Hier ist die gesamte Lösung:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def count_occurrences(main_str: str, sub_str: str) -> int:
+
+    ind = res = 0
+    main_str = main_str.lower()
+    sub_str = sub_str.lower()
+    while (ind:= main_str.find(sub_str, ind))!= -1:
+        res += 1
+        ind += 1
+        
+    return res
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Zeigen Sie mir mehr Lösungen!<br />
+        denn ich möchte ein echter 🥇 Python Ninnjaa sein!
+    </div>
+    <div class="answer">
+        <p>Klar, schnapp sie dir!</p>
+        <p>
+            Verwenden Sie reguläre Ausdrücke, um alle Vorkommen zu finden, ohne Zeichen zu verbrauchen (Überschneidungen erlaubt) und ohne die Groß- und Kleinschreibung zu beachten. 
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+import re
+
+
+def count_occurrences(main_str: str, sub_str: str) -> int:
+    
+    matches = re.findall(fr'(?={sub_str})', main_str, flags=re.IGNORECASE)
+    
+    return len(matches)
+        </pre>
+        </div>
+        <p>Klicken Sie im Missionsmenü auf <b>Best Solutions</b> und sehen Sie sich viele andere interessante Lösungen an!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Vielen Dank! Ich weiß und verstehe jetzt mehr! Alles funktioniert bestens!
+    </div>
+    <div class="answer">
+        Freut mich zu hören 👍!
+    </div>
+</div>
+</body>
