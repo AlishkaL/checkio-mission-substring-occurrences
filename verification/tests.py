@@ -31,6 +31,10 @@ TESTS = {
             "answer": 1
         },
         {
+            "input": ["appleappleapple", "appleapple"],
+            "answer": 2
+        },
+        {
             "input": ["HELLO WORLD", "WORLD"],
             "answer": 1
         },
@@ -52,10 +56,6 @@ TESTS = {
         },
     ],
     "Extra": [
-        {
-            "input": ["appleappleapple", "appleapple"],
-            "answer": 2
-        },
         {
             "input": ["test test test test", "t t"],
             "answer": 3
